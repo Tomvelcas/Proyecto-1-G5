@@ -38,12 +38,15 @@ public class PanelCajero extends JPanel implements ActionListener{
         
         String comando = e.getActionCommand();
 
-        if(comando.equals("REQ1")){
+        if(comando.equals("Registrar Pago")){
             // Registrar pago
-        }else if(comando.equals("REQ2")){
+            principal.registrarPagoInterfaz();
+        }else if(comando.equals("Entregar Pieza")){
             // Entregar pieza
-        }else if(comando.equals("REQ3")){
+            principal.entregarPiezaInterfaz();
+        }else if(comando.equals("Pago con Tarjeta de Credito")){
             // Pago con tarjeta de crédito
+            principal.pagoConTarjetaInterfaz();
         }
     }
 

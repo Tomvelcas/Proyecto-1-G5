@@ -11,14 +11,21 @@ import galeria.compraYsubasta.Subasta;
 import galeria.inventarioYpiezas.Inventario;
 import galeria.inventarioYpiezas.Pieza;
 import galeria.usuarios.AdministradorGaleria;
+import galeria.usuarios.Cajero;
+import galeria.usuarios.Comprador;
 import galeria.usuarios.ControladorUsuarios;
+import galeria.usuarios.OperadorSubasta;
 
 public class Galeria {
     private Inventario inventario;
     private ControladorUsuarios controladorUsuarios;
     private AdministradorGaleria administradorGaleria;
+    private Cajero cajero;
+    private Comprador comprador;
+    private OperadorSubasta operadorSubasta;
     private Map<String, Subasta> subastas;
     private Map<String, Compra> compras;
+
     
 
     public Galeria(Inventario inventario, ControladorUsuarios controladorUsuarios) {
@@ -43,6 +50,15 @@ public class Galeria {
 
     public AdministradorGaleria getAdministrador(){
         return administradorGaleria;
+    }
+    public Cajero getCajero(){
+        return cajero;
+    }
+    public Comprador getComprador(){
+        return comprador;
+    }
+    public OperadorSubasta getOperadorSubasta(){
+        return operadorSubasta;
     }
     public void setControladorUsuarios(ControladorUsuarios controladorUsuarios) {
         this.controladorUsuarios = controladorUsuarios;

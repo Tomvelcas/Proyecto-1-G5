@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
+
 public class PanelComprador extends JPanel implements ActionListener{
+    private VentanaPrincipal principal;
     private JButton req1;
     private JButton req2;
     private JButton req3;
@@ -65,19 +66,19 @@ public class PanelComprador extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
         if(comando.equals("REQ1")){
-            JOptionPane.showMessageDialog(null, "Req 1");
+            principal.verCatalogo();
         } else if(comando.equals("REQ2")){
-            JOptionPane.showMessageDialog(null, "Req 2");
+            principal.realizarCompraFijaInterfaz();
         } else if(comando.equals("REQ3")){
-            JOptionPane.showMessageDialog(null, "Req 3");
+            principal.getmisComprasInterfaz();
         } else if(comando.equals("REQ4")){
-            JOptionPane.showMessageDialog(null, "Req 4");
+            principal.verHistorialPiezaInterfaz();
         } else if(comando.equals("REQ5")){
-            JOptionPane.showMessageDialog(null, "Req 5");
+            principal.verHistorialArtistaInterfaz();
         } else if(comando.equals("REQ6")){
-            JOptionPane.showMessageDialog(null, "Req 6");
+            principal.vermisPiezasActualesInterfaz();
         } else if(comando.equals("REQ7")){
-            JOptionPane.showMessageDialog(null, "Req 7");
+            principal.vermisPiezasPasadasInterfaz();
         }
     }
 }

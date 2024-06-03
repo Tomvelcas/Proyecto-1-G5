@@ -89,27 +89,39 @@ public class PanelAdministrador extends JPanel implements ActionListener{
 
         if(comando.equals("REQ1")){
             // Registrar ingreso de pieza
+            principal.ingresarPiezaInterfaz();;
         }else if(comando.equals("REQ2")){
             // Confirmar venta
+            principal.confirmarVentaInterfaz();
         }else if(comando.equals("REQ3")){
             // Devolución de pieza
-        }else if(comando.equals("REQ4")){
-            // Verificar comprador
+            principal.devolucionPiezaInterfaz();
         }else if(comando.equals("REQ5")){
             // Aumentar limite crédito
+            principal.aumentarLimiteInterfaz();
+        }else if(comando.equals("REQ4")){
+            // Verificar comprador
+            principal.verificarCompradorInterfaz();
         }else if(comando.equals("REQ6")){
             // Verificar seriedad oferta
+            principal.verificarSeriedadOfertaInterfaz();
         }else if(comando.equals("REQ7")){
             // Bloquear pieza
+            principal.bloquearPiezaInterfaz();
         }else if(comando.equals("REQ8")){
             // Desbloquear pieza
-        }else if(comando.equals("REQ9")){
-            // Ver historia de una pieza
-        }else if(comando.equals("REQ10")){
-            // Ver historia de un artista
+            principal.desbloquearPiezaInterfaz();
         }else if(comando.equals("REQ11")){
-            // Ver historia de un comprador
+            // Ver historia de un Comprador
+            principal.historiaCompradorInterfaz();
+        }
+        else if(comando.equals("REQ9")){
+            // Ver historia de una pieza
+            principal.verHistorialPiezaInterfaz();
+        }
+        else if(comando.equals("REQ10")){
+            // Ver historia de un artista
+            principal.historiaArtistaInterfaz();
         }
     }
-
 }

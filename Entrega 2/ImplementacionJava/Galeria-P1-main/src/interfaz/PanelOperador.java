@@ -42,10 +42,13 @@ public class PanelOperador extends JPanel implements ActionListener{
 
         if(comando.equals("REQ1")){
             // Terminar Subasta
+            principal.terminarSubastaInterfaz();
         }else if(comando.equals("REQ2")){
             // Recibir y registrar oferta
+            principal.recibirRegistrarOfertaInterfaz();
         }else if(comando.equals("REQ3")){
             // Evaluar oferta
+            principal.evaluarOfertaInterfaz();
         }
     }
 
