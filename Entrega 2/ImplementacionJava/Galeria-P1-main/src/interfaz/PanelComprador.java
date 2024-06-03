@@ -1,11 +1,13 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 
 
@@ -21,7 +23,10 @@ public class PanelComprador extends JPanel implements ActionListener{
 
 
     public PanelComprador(VentanaPrincipal ventanaPrincipal) {
+
+
         setLayout(new GridLayout(7, 1));
+        UIManager.put("Button.background", Color.decode("#E89275"));
         req1 = new JButton("Ver catálogo");
         req1.addActionListener(this);
         req1.setActionCommand("REQ1");

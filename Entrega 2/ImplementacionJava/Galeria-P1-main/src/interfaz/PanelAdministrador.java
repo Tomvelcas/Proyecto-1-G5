@@ -1,10 +1,13 @@
 package interfaz;
 
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class PanelAdministrador extends JPanel implements ActionListener{
 
@@ -24,6 +27,9 @@ public class PanelAdministrador extends JPanel implements ActionListener{
 
     public PanelAdministrador(VentanaPrincipal ventanaPrincipal) {
         principal = ventanaPrincipal;
+
+        setLayout(new GridLayout(11, 1));
+        UIManager.put("Button.background", Color.decode("#E89275"));
 
         btnReq1 = new JButton("Registrar ingreso de pieza");
         btnReq1.setActionCommand("REQ1");
@@ -79,6 +85,8 @@ public class PanelAdministrador extends JPanel implements ActionListener{
         btnReq11.setActionCommand("REQ11");
         btnReq11.addActionListener(this);
         add(btnReq11);
+
+        UIManager.put("Button.background", Color.decode("#E89275"));
 
 
     }

@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import galeria.Galeria;
 import galeria.compraYsubasta.Compra;
@@ -27,7 +28,9 @@ import galeria.inventarioYpiezas.Pieza;
 import galeria.inventarioYpiezas.Pintura;
 import galeria.inventarioYpiezas.Video;
 import persistencia.PersistenciaGaleria;
+import galeria.usuarios.AdministradorGaleria;
 import galeria.usuarios.Comprador;
+import galeria.usuarios.Empleado;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -48,6 +51,7 @@ public class VentanaPrincipal extends JFrame {
         setIconImage(icon.getImage());
         setSize(800, 600);
         setLocationRelativeTo(null);
+        setBackground(java.awt.Color.decode("#DBCDA4"));
         
         panelOpciones = new PanelBajo(this);
         add(panelOpciones, BorderLayout.SOUTH);
@@ -61,6 +65,7 @@ public class VentanaPrincipal extends JFrame {
 
         pDerecha = new PanelDerecha();
         add(pDerecha, BorderLayout.EAST);
+
 
         mostrarObra(0);
         
@@ -139,6 +144,36 @@ public class VentanaPrincipal extends JFrame {
                 pCentral.setListaPiezas(listaPiezas);
                 mostrarObra(0);
                     
+                revalidate();
+                repaint();
+            } 
+            
+            else {
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+       } else if (selectedUser == "Empleado"){
+            Empleado empleado = galeria.getControladorUsuarios().getMapaLoginEmpleados().get(login);
+            if (empleado != null && empleado.getPassword().equals(password)){
+                if (empleado.getRol().equals("Operador")){
+                    pDerecha = new PanelOperador(this);
+                    add(pDerecha, BorderLayout.EAST);
+                    revalidate();
+                    repaint();
+                } else if (empleado.getRol().equals("Cajero")){
+                    pDerecha = new PanelCajero(this);
+                    add(pDerecha, BorderLayout.EAST);
+                    revalidate();
+                    repaint();
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+       } else if (selectedUser == "Administrador"){
+            AdministradorGaleria admin = galeria.getAdministrador();
+            if (admin != null && admin.getPassword().equals(password)){
+                pDerecha = new PanelAdministrador(this);
+                add(pDerecha, BorderLayout.EAST);
                 revalidate();
                 repaint();
             } else {

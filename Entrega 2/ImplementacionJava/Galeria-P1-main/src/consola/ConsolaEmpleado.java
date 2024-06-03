@@ -117,7 +117,7 @@ public class ConsolaEmpleado {
         String idComprador= GaleriaConsole.input("Ingrese el id del comprador que va a realizar el pago: ");
         String montoS= GaleriaConsole.input("Ingrese el monto del pago: ");
         int monto= Integer.parseInt(montoS);
-        String nTarjeta= GaleriaConsole.input("Ingrese el numero de la tarjeta de credito: (16 dígitos)");
+        String nTarjeta= GaleriaConsole.input("Ingrese el numero de la tarjeta de credito: (16 dígitos): ");
         String pin= GaleriaConsole.input("Ingrese el pin de seguridad (3 dígitos al costado de la tarjeta): ");
         System.out.println("\n"+cajero.RealizarPagoTarjeta(pasarela, idComprador, nTarjeta, monto, pin));
         

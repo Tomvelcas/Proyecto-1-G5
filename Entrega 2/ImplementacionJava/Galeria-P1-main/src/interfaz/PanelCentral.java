@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -47,24 +48,28 @@ public class PanelCentral extends JPanel implements ActionListener{
     public PanelCentral(VentanaPrincipal pPrincipal){
         ventanaPrincipal = pPrincipal;
 
+        String backgroundColor = "#DBCDA4";
+
         setBorder(new TitledBorder("Información de la obra"));
         setLayout(new BorderLayout());
+        setBackground(Color.decode(backgroundColor));
 
         panelNavegacion = new JPanel();
+        panelNavegacion.setBackground(Color.decode(backgroundColor));
         add(panelNavegacion, BorderLayout.SOUTH);
         panelNavegacion.setLayout( new GridLayout( 1, 4 ) );
         panelNavegacion.setBorder( new TitledBorder( "Navegacion" ) );
         
         panelImagen = new JLabel();
-        add(panelImagen, BorderLayout.WEST);
-        ImageIcon image = new ImageIcon("Entrega 2/ImplementacionJava/Galeria-P1-main/images/frame_image.jpg");
+        panelImagen.setHorizontalAlignment(JLabel.CENTER); // Center align the image
+        add(panelImagen, BorderLayout.CENTER);
+        ImageIcon image = new ImageIcon("Entrega 2/ImplementacionJava/Galeria-P1-main/images/photo.png");
         panelImagen.setIcon(image);
-        panelImagen.setSize(50, 50);
-
 
         panelDatosObra = new JPanel();
-        add(panelDatosObra, BorderLayout.CENTER);
-        panelDatosObra.setLayout( new GridLayout( 4, 2 ) );
+        panelDatosObra.setBackground(Color.decode(backgroundColor));
+        add(panelDatosObra, BorderLayout.NORTH);
+        panelDatosObra.setLayout( new GridLayout( 2, 4 ) );
 
         lblTitulo = new JLabel("Titulo: ");
         panelDatosObra.add(lblTitulo);
@@ -115,7 +120,11 @@ public class PanelCentral extends JPanel implements ActionListener{
         listaPiezas = new LinkedList<Pieza>();
         listaPiezas = ventanaPrincipal.getGaleria().getInventario().getPiezasDisponibleVenta();
 
-
+        String hexaColor = "#9CBCB7";
+        btnInicio.setBackground(Color.decode(hexaColor));
+        btnAnterior.setBackground(Color.decode(hexaColor));
+        btnSiguiente.setBackground(Color.decode(hexaColor));
+        btnFinal.setBackground(Color.decode(hexaColor));
 
     }
 

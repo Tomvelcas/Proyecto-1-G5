@@ -11,7 +11,7 @@ import galeria.inventarioYpiezas.Pieza;
 import galeria.usuarios.AdministradorGaleria;
 import galeria.usuarios.Comprador;
 import galeria.usuarios.Empleado;
-import interfaz.VisualizarVentas;
+import interfaz.VisualizadorVentas;
 
 public class GaleriaConsole {
 
@@ -99,10 +99,18 @@ public class GaleriaConsole {
                     break;
                 case 4:
                     Map<String,Integer> mapa= galeria.contarVentasDiarias();
-                    VisualizarVentas grafico=new VisualizarVentas("Compras diarias", mapa);
-                    grafico.pack();
-                    grafico.setVisible(true);
-
+                    // Crear y mostrar la visualización de ventas
+                    javax.swing.JFrame frame = new javax.swing.JFrame("Sales Visualization");
+                    VisualizadorVentas panel = new VisualizadorVentas(mapa);
+                    frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+                    frame.add(panel);
+                    // Ajustar el tamaño del frame para que se ajuste a la cuadrícula y las etiquetas
+                    int frameWidth = 52 * (20 + 2) + 30 + 50;
+                    int frameHeight = 7 * (20 + 2) + 30 + 50;
+                    frame.setSize(frameWidth, frameHeight);
+                    frame.setVisible(true);
+                    
+                 
                     
                     break;
                 case 0:

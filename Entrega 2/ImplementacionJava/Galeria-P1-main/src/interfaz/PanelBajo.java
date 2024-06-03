@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 
 public class PanelBajo extends JPanel implements ActionListener{
@@ -15,14 +17,16 @@ public class PanelBajo extends JPanel implements ActionListener{
     private JButton btnSave;
     private JButton btnLogin;
     private JButton btnVentas;
-
+    
     private VentanaPrincipal principal;
-
+    
     public PanelBajo(VentanaPrincipal ventanaPrincipal) {
-
+        
         principal = ventanaPrincipal;
+        UIManager.put("Button.background", Color.decode("#6B4945"));
 
         setLayout(new GridLayout(1, 3));
+        setBackground(Color.decode("#6B4945"));
 
         btnUs = new JButton("Sobre nosotros");
         btnUs.addActionListener(this);
@@ -44,6 +48,14 @@ public class PanelBajo extends JPanel implements ActionListener{
         btnLogin.setActionCommand("LOGIN");
         add(btnLogin);
 
+        String hexaColor = "#6B4945";
+
+
+        btnUs.setForeground(Color.WHITE);
+        btnVentas.setForeground(Color.WHITE);
+        btnSave.setForeground(Color.WHITE);
+        btnLogin.setForeground(Color.WHITE);
+
 
     }
 
@@ -59,8 +71,14 @@ public class PanelBajo extends JPanel implements ActionListener{
             principal.login();
         } else if(comando.equals("VENTAS")){
             Map<String, Integer> ventasDiarias = principal.getGaleria().contarVentasDiarias();
-            VisualizarVentas frame = new VisualizarVentas("Ventas Diarias", ventasDiarias);
-            frame.pack();
+            javax.swing.JFrame frame = new javax.swing.JFrame("Sales Visualization");
+            VisualizadorVentas panel = new VisualizadorVentas(ventasDiarias);
+            frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+            frame.add(panel);
+            // Ajustar el tamaño del frame para que se ajuste a la cuadrícula y las etiquetas
+            int frameWidth = 52 * (20 + 2) + 30 + 50;
+            int frameHeight = 7 * (20 + 2) + 30 + 50;
+            frame.setSize(frameWidth, frameHeight);
             frame.setVisible(true);
         }
     }

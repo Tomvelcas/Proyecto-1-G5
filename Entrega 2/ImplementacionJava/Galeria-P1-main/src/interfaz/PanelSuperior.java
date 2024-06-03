@@ -25,7 +25,7 @@ public class PanelSuperior extends JPanel{
         // Set the font and color for the banner
         Font font = new Font("Arial", Font.BOLD, 30);
         g2d.setFont(font);
-        g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.decode("#737373"));
         Rectangle2D.Double rect = new Rectangle2D.Double(0, 0, getWidth(), getHeight());
 
         g2d.fill(rect);

@@ -51,7 +51,12 @@ public class ConsolaUsuarios {
     public static Compra compra2= new Compra("587650", 70000, "tarjeta", "La Flor","547293","24/08/2023");
     public static Compra compra3= new Compra("567790", 100000, "tarjeta", "Vida","547293","15/01/2023");
     public static Compra compra4= new Compra("587340", 45000, "tarjeta", "La torre de Piza","547293","30/05/2023");
-    public static Compra compra5= new Compra("588140", 28000, "tarjeta", "Mona Lisa","547293","30/05/2023");
+    public static Compra compra5= new Compra("588140", 28000, "tarjeta", "La nina y el buitre","547293","30/05/2023");
+    public static Compra compra6= new Compra("521140", 290000, "tarjeta", "Mona Lisa","547293","30/05/2023");
+    public static Compra compra7= new Compra("567743", 100000, "tarjeta", "La Vie","547293","15/01/2023");
+    public static Compra compra8= new Compra("524340", 290000, "tarjeta", "Mona Lisa","547293","30/05/2023");
+    public static Compra compra9= new Compra("520743", 100000, "tarjeta", "La Vie","547293","24/03/2023");
+
 
     
     public static void setUp(){
@@ -85,11 +90,19 @@ public class ConsolaUsuarios {
         galeriaConsola.agregarCompra(compra3);
         galeriaConsola.agregarCompra(compra4);
         galeriaConsola.agregarCompra(compra5);
+        galeriaConsola.agregarCompra(compra6);
+        galeriaConsola.agregarCompra(compra7);
+        galeriaConsola.agregarCompra(compra8);
+        galeriaConsola.agregarCompra(compra9);
         comprador.agregarCompra(compra1);
         comprador.agregarCompra(compra2);
         comprador.agregarCompra(compra3);
         comprador.agregarCompra(compra4);
         comprador.agregarCompra(compra5);
+        comprador.agregarCompra(compra6);
+        comprador.agregarCompra(compra7);
+        comprador.agregarCompra(compra8);
+        comprador.agregarCompra(compra9);
         galeriaConsola.setAdministradorGaleria(admin);
     }
 

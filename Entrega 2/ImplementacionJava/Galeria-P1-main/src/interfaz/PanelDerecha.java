@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ public class PanelDerecha extends JPanel{
 
     public PanelDerecha() {
         lblStart = new JLabel("Bienvenido a la Galeria");
+        setBackground(Color.decode("#DBCDA4"));
         lblStart.setPreferredSize(new Dimension(200, 100));
         add(lblStart);
     }
