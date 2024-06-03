@@ -8,9 +8,9 @@ public class VisualizadorVentas extends JPanel {
     private static final int DAYS_IN_WEEK = 7;
     private static final int WEEKS_IN_YEAR = 52;
     private static final int TOTAL_DAYS = DAYS_IN_WEEK * WEEKS_IN_YEAR;
-    private static final int CELL_SIZE = 20; // Tamaño de cada celda
-    private static final int PADDING = 2; // Espacio entre celdas
-    private static final int TEXT_PADDING = 30; // Espacio para los textos
+    private static final int CELL_SIZE = 17; // Tamaño de cada celda
+    private static final int PADDING = 4; // Espacio entre celdas
+    private static final int TEXT_PADDING = 50; // Espacio para los textos
     private Map<String, Integer> salesData;
 
     public VisualizadorVentas(Map<String, Integer> salesMap) {
@@ -29,13 +29,13 @@ public class VisualizadorVentas extends JPanel {
         g2d.setFont(new Font("Arial", Font.PLAIN, 15));
         String title = "VENTAS DIARIAS 2023";
         int titleWidth = g2d.getFontMetrics().stringWidth(title);
-        g2d.drawString(title, (getWidth() - titleWidth) / 2, 15);
+        g2d.drawString(title, (getWidth() - titleWidth) / 2, 20);
 
         // Dibujar etiquetas de los días de la semana
-        String[] daysOfWeek = {"Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"};
+        String[] daysOfWeek = {"Lun", "Mar", "Mie", "Jue", "Vie", "Sáb", "Dom"};
         for (int i = 0; i < DAYS_IN_WEEK; i++) {
             int y = i * (CELL_SIZE + PADDING) + TEXT_PADDING + CELL_SIZE / 2;
-            g2d.drawString(daysOfWeek[i], 4, y);
+            g2d.drawString(daysOfWeek[i], 10, y);
         }
 
         // Dibujar etiquetas de los meses
@@ -43,7 +43,7 @@ public class VisualizadorVentas extends JPanel {
         int daysInMonth = TOTAL_DAYS / months.length;
         for (int i = 0; i < months.length; i++) {
             int x = i * daysInMonth * (CELL_SIZE + PADDING) / DAYS_IN_WEEK + TEXT_PADDING;
-            g2d.drawString(months[i], x, TEXT_PADDING - 1);
+            g2d.drawString(months[i], x, TEXT_PADDING - 5);
         }
 
         // Dibujar las celdas de ventas
